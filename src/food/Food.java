@@ -16,14 +16,25 @@ public class Food {
 	private static Scanner scanner = new Scanner(System.in); // open the scanner
 
 	/**
-	 * method to receive the user information since String
+	 * method to receive the user information since String not empty or not null
 	 * 
 	 * @param message
 	 * @return
 	 */
 	public static String userInputString(String message) {
-		System.out.println(message);
-		return scanner.nextLine();
+		String result="";
+		boolean answer = false;
+		while (!answer) {
+			System.out.println(message);
+				String tempResult = scanner.nextLine();
+				if (!tempResult.equals("")) {
+					answer = true;
+					result = tempResult;
+				} else {
+					System.err.println("Please complete the information.");
+				}
+		}
+		return result;
 	}
 
 	/**
